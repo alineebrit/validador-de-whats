@@ -21,4 +21,18 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
   const numeroLimpo = whats.replace(/\D/g, '');
   const mensagem = encodeURIComponent(`Olá! Gostaria de mais informações sobre a Menos Juros Brasil Assessoria.\nNome: ${nome}\nMeu WhatsApp: ${whats}`);
   window.open(`https://wa.me/${NUMERO_DESTINO}?text=${mensagem}`, '_blank');
+
+  limparInputs();
+});
+
+function limparInputs() {
+  document.getElementById('nome').value = '';
+  document.getElementById('whats').value = '';
+}
+
+document.getElementById('whats').addEventListener('input', function(e) {
+  let valor = e.target.value.replace(/\D/g, ''); 
+  valor = valor.replace(/^(\d{2})(\d)/g, '($1) $2');
+  valor = valor.replace(/(\d{5})(\d)/, '$1-$2');
+  e.target.value = valor;
 });
