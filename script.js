@@ -36,3 +36,6 @@ document.getElementById('whats').addEventListener('input', function(e) {
   valor = valor.replace(/(\d{5})(\d)/, '$1-$2');
   e.target.value = valor;
 });
+
+const ano = new Date().getFullYear();
+document.getElementById("footer-main-page").innerHTML = `© ${ano} Menos Juros Brasil Assessoria`;
