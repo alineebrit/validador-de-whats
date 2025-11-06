@@ -4,18 +4,22 @@ async function avaliarNumero(numero) {
   const url = `https://whatsapp-checker.p.rapidapi.com/check?phone=%2B55${numero}`;
   const options = {
     method: 'GET',
+    // headers: {
+    //   'x-rapidapi-key': '4bfdac0540msh77ab340a34e2928p105b66jsnd3d56c41c298',
+    //   'x-rapidapi-host': 'whatsapp-checker.p.rapidapi.com'
+    // }
     headers: {
-      'x-rapidapi-key': '960aec5688mshce87f4beeeed823p11a6fejsnc81fecd27042',
-      'x-rapidapi-host': 'whatsapp-checker.p.rapidapi.com'
-    }
+		'x-rapidapi-key': 'f503726e6fmsh3fb1ac3c546156dp1267c6jsnef7eff6a6e9f',
+		'x-rapidapi-host': 'whatsapp-checker.p.rapidapi.com'
+	  }
   };
 
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-    return result[0].exists;
+    return result.data[0].exists;
   } catch (error) {
-    console.error(error);
+    console.error('aqui tem o erro: ', error);
   }
 }
 
